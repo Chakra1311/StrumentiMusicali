@@ -1,6 +1,7 @@
 <x-layout>
     <div>
-        <h1>Ciaone</h1>
+        <x-header title="Ciaone"></x-header>
+
         
     </div>
 

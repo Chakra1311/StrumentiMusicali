@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('instruments', function (Blueprint $table) {
             $table->id();
+            $table->string('brand');
+            $table->string('model');
+            $table->decimal('price',8,2);
+            $table->longText('description');
+            $table->string('image');
             $table->timestamps();
         });
     }

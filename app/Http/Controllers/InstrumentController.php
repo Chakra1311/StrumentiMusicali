@@ -12,7 +12,8 @@ class InstrumentController extends Controller
      */
     public function index()
     {
-        //
+      $instruments = Instrument::all();
+      return view('instrument.index', compact('instruments'));
     }
 
     /**
@@ -20,7 +21,7 @@ class InstrumentController extends Controller
      */
     public function create()
     {
-        //
+        return view('instrument.create');
     }
 
     /**
