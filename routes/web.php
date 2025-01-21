@@ -16,4 +16,5 @@ Route::post('/logout', [PublicController::class, 'logout'])->name('logout');
 Route::get('/create/instrument', [InstrumentController::class, 'create'])->name('instrument.create');
 
 Route::get('/instrument/index', [InstrumentController::class, 'index'])->name('instrument.index');
-    
+Route::get('/instrument/show/{instrument}', [InstrumentController::class, 'show'])->name('instrument.show');
+Route::get('/instrument/edit/{instrument}', [InstrumentController::class, 'edit'])->name('instrument.edit');

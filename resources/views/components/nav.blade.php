@@ -21,16 +21,19 @@
                     <a class="nav-link" href="{{ route('home') }}">Home</a>
                 </li>
                 @auth
-                    <li class="nav-item">
-                        <a class="nav-link" href={{ route('instrument.create') }}>Add Instrument</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('instrument.index') }}">List of the Instruments</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Projects</a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('instrument.create') }}">Add Instrument</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('instrument.index') }}">List of the Instruments</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Projects</a>
+                </li>
                 @else
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('instrument.index') }}">List of the Instruments</a>
+                </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">Log In</a>
                     </li>

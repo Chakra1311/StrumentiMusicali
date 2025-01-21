@@ -37,7 +37,7 @@ class InstrumentController extends Controller
      */
     public function show(Instrument $instrument)
     {
-        //
+        return view('instrument.show', compact('instrument'));
     }
 
     /**
@@ -45,7 +45,8 @@ class InstrumentController extends Controller
      */
     public function edit(Instrument $instrument)
     {
-        //
+        return view('instrument.edit', compact('instrument'));
+
     }
 
     /**
