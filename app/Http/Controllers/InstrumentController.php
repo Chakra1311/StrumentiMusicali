@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Instrument;
 use Illuminate\Http\Request;
 
@@ -57,11 +58,15 @@ class InstrumentController extends Controller
         //
     }
 
+    public function showByUser(User $user){
+            return view('instrument.byUser', compact('user'));
+    }
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Instrument $instrument)
     {
-        //
+       $instrument->delete();
+       return redirect(route('instrument.index'))->with('message', 'Instrument deleted');
     }
 }

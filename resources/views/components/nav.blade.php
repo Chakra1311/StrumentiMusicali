@@ -64,7 +64,8 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
                     @auth
-                        <li ><p class="dropdown-item font-italic ">Ciao, {{ Auth::user()->name }}</p></li>
+                        <li><a class="dropdown-item font-italic" href="{{ route('instrument.byUser', Auth::user()) }}">Hello, {{ Auth::user()->name }}</a></li>
+
                         <li><a class="dropdown-item" href="{{ route('home') }}">My Profile</a></li>
                         <li>
                             <form method="POST" action="{{ route('logout') }}">

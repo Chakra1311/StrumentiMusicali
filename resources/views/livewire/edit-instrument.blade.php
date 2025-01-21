@@ -28,10 +28,12 @@
             <textarea name="description" wire:model.blur="description"  class="form-control" cols="30" rows="1"></textarea>
             @error('description')<div class="alert alert-danger"> {{ $message }}</div>@enderror
         </div>
+
         <div class="mb-3">
             <label  class="form-label">Last Image</label>
             <img src="{{Storage::url($oldImage)}}" alt="" class="img-fluid " style="width:100px; height:100px ">
         </div>
+        
         <div class="mb-3">
             <label  class="form-label">Image</label>
             <input type="file" class="form-control" wire:model.blur="image" >

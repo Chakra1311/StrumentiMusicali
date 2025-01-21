@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Instrument;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Validate;
+use Illuminate\Support\Facades\Auth;
 
 class CreateInstrument extends Component
 {
@@ -30,7 +31,8 @@ class CreateInstrument extends Component
 
         $this->validate();
 
-        Instrument::create([
+       
+        Auth::user()->instruments()->create([
             'brand' => $this->brand,
             'model' => $this->model,
             'price' => $this->price,
