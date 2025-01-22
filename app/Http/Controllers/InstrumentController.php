@@ -66,6 +66,10 @@ class InstrumentController extends Controller
      */
     public function destroy(Instrument $instrument)
     {
+        foreach($instrument->categories as $category){
+            $category->instruments()->detach($instrument->id);
+        }
+
        $instrument->delete();
        return redirect(route('instrument.index'))->with('message', 'Instrument deleted');
     }

@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use App\Models\Category;
 use App\Models\Instrument;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Validate;
@@ -23,6 +24,10 @@ class EditInstrument extends Component
     #[Validate('required|min:3')] 
     public $description;
 
+    #[Validate('required')]
+    public $categorySelect;
+    public $instrumentCategory;
+
     public $image;
 
     public $oldImage;
@@ -34,6 +39,7 @@ class EditInstrument extends Component
         $this->model=$instrument->model;
         $this->price=$instrument->price;
         $this->description=$instrument->description;
+        $this->instrumentCategory=$instrument->categories;
         $this->oldImage=$instrument->image;
         $this->idInstrument=$instrument->id;
         
@@ -49,13 +55,15 @@ class EditInstrument extends Component
             'description' => $this->description,
             'image'=> $this->image ? $this->image->store('images', 'public') : $instrument->image
         ]);
+        $instrument->categories()->sync($this->categorySelect);
+
         return redirect(route('instrument.index'));
         
       
     }
     public function render()
     {
-        
-        return view('livewire.edit-instrument', ['oldImage' => $this->oldImage]);
+        $allCategories=Category::all();
+        return view('livewire.edit-instrument', ['oldImage' => $this->oldImage, 'allCategories'=>$allCategories, 'instrumentCategory'=>$this->instrumentCategory ]);
     }
 }

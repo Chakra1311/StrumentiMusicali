@@ -22,6 +22,20 @@
             <input type="text   " class="form-control" wire:model.blur="price">
             @error('price')<div class="alert alert-danger"> {{ $message }}</div>@enderror
         </div>
+
+        <div class="mb-3">
+            <label  class="form-label">Select Category</label>
+            <select  class="form-control " wire:model.blur="categorySelect" >
+                @foreach ($allCategories as $category)
+                    <option value="{{$category->id}}" 
+                        @if ($instrumentCategory->find($category->id))
+                            selected
+                        @endif
+                        >{{$category->name}}</option>
+                @endforeach
+            </select>
+            @error('categorySelect')<div class="alert alert-danger"> {{ $message }}</div>@enderror
+        </div>
         
         <div class="mb-3">
             <label  class="form-label">Description</label>
